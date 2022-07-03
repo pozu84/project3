@@ -2,8 +2,10 @@ package com.example.project3;
 
 import com.example.project3.entities.Citas;
 import com.example.project3.entities.Medico;
+import com.example.project3.entities.Pacientes;
 import com.example.project3.repository.CitasRepository;
 import com.example.project3.repository.MedicoRepository;
+import com.example.project3.repository.PacientesRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -44,6 +46,19 @@ public class Project3Application {
 		citasRepository.save(cita1);
 
 		System.out.println("Citas " + citasRepository.findAll());
+
+		/*CREAR PACIENTE*/
+		PacientesRepository pacientesRepository = context.getBean(PacientesRepository.class);
+
+		Pacientes paciente1 = new Pacientes(null,
+				"paciente 1",
+				"apellido 1",
+				LocalDate.of(1984, 9, 17));
+
+		pacientesRepository.save(paciente1);
+
+		System.out.println("Citas " + pacientesRepository.findAll());
+
 	}
 
 }
